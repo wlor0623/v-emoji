@@ -1,8 +1,8 @@
 {
   "name": "v-emoji",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "v-emoji是用vue编写的emoji键盘",
-  "main": "dist/VEmoji.min.js",
+  "main": "dist/v-emoji.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --hot  --inline",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wlor0623/VEmoji"
+    "url": "https://github.com/wlor0623/v-emoji"
   },
   "author": "wlor",
   "devDependencies": {

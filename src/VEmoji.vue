@@ -9,7 +9,7 @@
           :style="{ color: tabIndex === index ? color : '#666','background-color': tabIndex === index ?'#fff':'' }"
           @click.stop="toogleTabIndex(index)"
         >
-          {{ item.title }}1
+          {{ item.title }}
         </div>
       </div>
     </div>
