@@ -2,7 +2,7 @@ vemoji是一个基于vue框架的emoji键盘组件 方便用户输入emoji表情
 
 ## npm
 
-https://github.com/wlor0623/v-emoji
+https://www.npmjs.com/package/v-emoji
 
 ## 用法
 
@@ -12,6 +12,9 @@ https://github.com/wlor0623/v-emoji
 
 ```
 ### 单文件引用
+```js
+npm i v-emoji -S
+```
 ```js
 import VEmoji from "v-emoji";
 
