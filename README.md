@@ -25,6 +25,11 @@ export default {
 }
 
 ```
+
 ## 示例
 
 ![示例](https://raw.githubusercontent.com/wlor0623/v-emoji/main/example/Snipaste_2021-03-31_17-49-52.png)
+
+
+## 更新记录
+- 2021-04-07 适配暗黑模式

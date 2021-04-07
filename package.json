@@ -1,6 +1,6 @@
 {
   "name": "v-emoji",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "v-emoji是用vue编写的emoji键盘",
   "main": "dist/v-emoji.min.js",
   "scripts": {

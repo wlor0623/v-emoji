@@ -6,7 +6,7 @@
           class="tab-item"
           v-for="(item, index) in emoji"
           :key="index"
-          :style="{ color: tabIndex === index ? color : '#666','background-color': tabIndex === index ?'#fff':'' }"
+          :class="{ active: tabIndex === index }"
           @click.stop="toogleTabIndex(index)"
         >
           {{ item.title }}
@@ -80,11 +80,124 @@ export default {
 </script>
 
 <style lang="less" scoped>
+body {
+  --weui-BG-0: #ededed;
+  --weui-BG-1: #f7f7f7;
+  --weui-BG-2: #fff;
+  --weui-BG-3: #f7f7f7;
+  --weui-BG-4: #4c4c4c;
+  --weui-BG-5: #fff;
+  --weui-FG-0: rgba(0, 0, 0, 0.9);
+  --weui-FG-HALF: rgba(0, 0, 0, 0.9);
+  --weui-FG-1: rgba(0, 0, 0, 0.5);
+  --weui-FG-2: rgba(0, 0, 0, 0.3);
+  --weui-FG-3: rgba(0, 0, 0, 0.1);
+  --weui-RED: #fa5151;
+  --weui-ORANGE: #fa9d3b;
+  --weui-YELLOW: #ffc300;
+  --weui-GREEN: #91d300;
+  --weui-LIGHTGREEN: #95ec69;
+  --weui-BRAND: #07c160;
+  --weui-BLUE: #10aeff;
+  --weui-INDIGO: #1485ee;
+  --weui-PURPLE: #6467f0;
+  --weui-WHITE: #fff;
+  --weui-LINK: #576b95;
+  --weui-LINK-ACTIVE: rgba(87, 107, 149, 0.5);
+  --weui-TEXTGREEN: #06ae56;
+  --weui-FG: black;
+  --weui-BG: white;
+  --weui-TAG-TEXT-ORANGE: #fa9d3b;
+  --weui-TAG-BACKGROUND-ORANGE: rgba(250, 157, 59, 0.1);
+  --weui-TAG-TEXT-GREEN: #06ae56;
+  --weui-TAG-BACKGROUND-GREEN: rgba(6, 174, 86, 0.1);
+  --weui-TAG-TEXT-BLUE: #10aeff;
+  --weui-TAG-BACKGROUND-BLUE: rgba(16, 174, 255, 0.1);
+  --weui-TAG-TEXT-BLACK: rgba(0, 0, 0, 0.5);
+  --weui-TAG-BACKGROUND-BLACK: rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  body:not([data-weui-theme="light"]) {
+    --weui-BG-0: #111111;
+    --weui-BG-1: #1e1e1e;
+    --weui-BG-2: #191919;
+    --weui-BG-3: #202020;
+    --weui-BG-4: #404040;
+    --weui-BG-5: #2c2c2c;
+    --weui-FG-0: rgba(255, 255, 255, 0.8);
+    --weui-FG-HALF: rgba(255, 255, 255, 0.6);
+    --weui-FG-1: rgba(255, 255, 255, 0.5);
+    --weui-FG-2: rgba(255, 255, 255, 0.3);
+    --weui-FG-3: rgba(255, 255, 255, 0.05);
+    --weui-RED: #fa5151;
+    --weui-ORANGE: #c87d2f;
+    --weui-YELLOW: #cc9c00;
+    --weui-GREEN: #74a800;
+    --weui-LIGHTGREEN: #3eb575;
+    --weui-BRAND: #07c160;
+    --weui-BLUE: #10aeff;
+    --weui-INDIGO: #1196ff;
+    --weui-PURPLE: #8183ff;
+    --weui-WHITE: rgba(255, 255, 255, 0.8);
+    --weui-LINK: #7d90a9;
+    --weui-LINK-ACTIVE: rgba(125, 144, 169, 0.5);
+    --weui-TEXTGREEN: #259c5c;
+    --weui-FG: white;
+    --weui-BG: black;
+    --weui-TAG-TEXT-ORANGE: rgba(250, 157, 59, 0.6);
+    --weui-TAG-BACKGROUND-ORANGE: rgba(250, 157, 59, 0.1);
+    --weui-TAG-TEXT-GREEN: rgba(6, 174, 86, 0.6);
+    --weui-TAG-BACKGROUND-GREEN: rgba(6, 174, 86, 0.1);
+    --weui-TAG-TEXT-BLUE: rgba(16, 174, 255, 0.6);
+    --weui-TAG-BACKGROUND-BLUE: rgba(16, 174, 255, 0.1);
+    --weui-TAG-TEXT-BLACK: rgba(255, 255, 255, 0.5);
+    --weui-TAG-BACKGROUND-BLACK: rgba(255, 255, 255, 0.05);
+  }
+}
+
+body[data-weui-theme="dark"] {
+  --weui-BG-0: #111111;
+  --weui-BG-1: #1e1e1e;
+  --weui-BG-2: #191919;
+  --weui-BG-3: #202020;
+  --weui-BG-4: #404040;
+  --weui-BG-5: #2c2c2c;
+  --weui-FG-0: rgba(255, 255, 255, 0.8);
+  --weui-FG-HALF: rgba(255, 255, 255, 0.6);
+  --weui-FG-1: rgba(255, 255, 255, 0.5);
+  --weui-FG-2: rgba(255, 255, 255, 0.3);
+  --weui-FG-3: rgba(255, 255, 255, 0.05);
+  --weui-RED: #fa5151;
+  --weui-ORANGE: #c87d2f;
+  --weui-YELLOW: #cc9c00;
+  --weui-GREEN: #74a800;
+  --weui-LIGHTGREEN: #3eb575;
+  --weui-BRAND: #07c160;
+  --weui-BLUE: #10aeff;
+  --weui-INDIGO: #1196ff;
+  --weui-PURPLE: #8183ff;
+  --weui-WHITE: rgba(255, 255, 255, 0.8);
+  --weui-LINK: #7d90a9;
+  --weui-LINK-ACTIVE: rgba(125, 144, 169, 0.5);
+  --weui-TEXTGREEN: #259c5c;
+  --weui-FG: white;
+  --weui-BG: black;
+  --weui-TAG-TEXT-ORANGE: rgba(250, 157, 59, 0.6);
+  --weui-TAG-BACKGROUND-ORANGE: rgba(250, 157, 59, 0.1);
+  --weui-TAG-TEXT-GREEN: rgba(6, 174, 86, 0.6);
+  --weui-TAG-BACKGROUND-GREEN: rgba(6, 174, 86, 0.1);
+  --weui-TAG-TEXT-BLUE: rgba(16, 174, 255, 0.6);
+  --weui-TAG-BACKGROUND-BLUE: rgba(16, 174, 255, 0.1);
+  --weui-TAG-TEXT-BLACK: rgba(255, 255, 255, 0.5);
+  --weui-TAG-BACKGROUND-BLACK: rgba(255, 255, 255, 0.05);
+}
+
 .scroll::-webkit-scrollbar {
   display: none;
 }
 .emoji-keyboard {
-  background-color: #e7e8e9;
+  background-color: var(--weui-BG-0);
   .tab {
     width: 100%;
     overflow-x: scroll;
@@ -107,7 +220,8 @@ export default {
         overflow: hidden;
         transition: all 0.2s;
         &.active {
-          background-color: #fff;
+          background-color: var(--weui-BG-5);
+          color: var(--weui-FG-0);
         }
       }
     }
@@ -119,7 +233,7 @@ export default {
     padding: 15px 10px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    background-color: #fff;
+    background-color: var(--weui-BG-2);
     .flex-cell {
       flex: 0 0 12.5%;
       display: flex;
